@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Text;
+using DltNode.Hash;
 
 namespace DltNode.Main
 {
@@ -6,9 +8,10 @@ namespace DltNode.Main
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
-			Console.WriteLine();
-			Console.WriteLine(1);
+			PureHash keccak = new PureHash();
+			byte[] input= Encoding.UTF8.GetBytes("hello, world");
+			var qwe = keccak.ComputeHash(input);
+			Console.WriteLine(BitConverter.ToString(qwe));
 		}
 	}
 }
